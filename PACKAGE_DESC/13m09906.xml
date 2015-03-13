@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Klaus Popp (MEN Mikro Elektronik GmbH) -->
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="packagedesc.xsd">
+	<name>13m09906</name>
+	<description>MDIS5 driver package for MEN M99 M-Module</description>
+	<date>2010-08-20</date>
+	<revision>2.13</revision>
+	<modellist>
+		<model>
+			<hwname>M99</hwname>
+			<description>Test M-Module</description>
+			<devtype>MDIS</devtype>
+			<autoid>
+				<mmoduleid>0x53460063</mmoduleid>
+			</autoid>
+			<busif>M-Module</busif>
+		</model>
+	</modellist>
+	<settinglist>
+		<setting>
+			<name>IRQ_ENABLE</name>
+			<description>enable irq immediately after init</description>
+			<type>U_INT32</type>
+			<defaultvalue>0</defaultvalue>
+			<choises>
+				<choise>
+					<value>0</value>
+					<description>no</description>
+				</choise>
+				<choise>
+					<value>1</value>
+					<description>yes</description>
+				</choise>
+			</choises>
+		</setting>
+		<setting>
+			<name>ID_CHECK</name>
+			<description>Define wether M-Module ID-PROM is checked, don't enable for M99, works only once after power up</description>
+			<type>U_INT32</type>
+			<value>0</value>
+			<defaultvalue>1</defaultvalue>
+			<choises>
+				<choise>
+					<value>0</value>
+					<description>disable -- ignore IDPROM</description>
+				</choise>
+				<choise>
+					<value>1</value>
+					<description>enable</description>
+				</choise>
+			</choises>
+		</setting>
+		<setting>
+			<name>M99_COUNTER_PRELOAD</name>
+			<description>24bit reg, 250000: 1 irq per s</description>
+			<type>U_INT32</type>
+			<defaultvalue>250000</defaultvalue>
+		</setting>
+		<setting>
+			<name>M99_IRQ_JITTER</name>
+			<description>jitter mode</description>
+			<type>U_INT32</type>
+			<defaultvalue>1</defaultvalue>
+			<choises>
+				<choise>
+					<value>0</value>
+					<description>jitter mode on</description>
+				</choise>
+				<choise>
+					<value>1</value>
+					<description>jitter mode off</description>
+				</choise>
+			</choises>
+		</setting>
+		<setting>
+			<name>M99_SRAM_RW_BUF_SIZE</name>
+			<description>read and write SRAM size: 2..256kB</description>
+			<type>U_INT32</type>
+			<defaultvalue>0x40</defaultvalue>
+		</setting>
+		<settingsubdir>
+			<name>RD_BUF</name>
+			<setting>
+				<name>SIZE</name>
+				<type>U_INT32</type>
+				<defaultvalue>128</defaultvalue>
+			</setting>
+			<setting>
+				<name>MODE</name>
+				<type>U_INT32</type>
+				<defaultvalue>0</defaultvalue>
+			</setting>
+			<setting>
+				<name>TIMEOUT</name>
+				<type>U_INT32</type>
+				<defaultvalue>1000</defaultvalue>
+			</setting>
+			<setting>
+				<name>HIGHWATER</name>
+				<type>U_INT32</type>
+				<defaultvalue>128</defaultvalue>
+			</setting>
+		</settingsubdir>
+		<settingsubdir>
+			<name>WR_BUF</name>
+			<setting>
+				<name>SIZE</name>
+				<type>U_INT32</type>
+				<defaultvalue>128</defaultvalue>
+			</setting>
+			<setting>
+				<name>MODE</name>
+				<type>U_INT32</type>
+				<defaultvalue>0</defaultvalue>
+			</setting>
+			<setting>
+				<name>TIMEOUT</name>
+				<type>U_INT32</type>
+				<defaultvalue>1000</defaultvalue>
+			</setting>
+			<setting>
+				<name>LOWWATER</name>
+				<type>U_INT32</type>
+				<defaultvalue>0</defaultvalue>
+			</setting>
+		</settingsubdir>
+		<debugsetting mbuf="true"></debugsetting>
+	</settinglist>
+	<swmodulelist>
+		<swmodule>
+			<name>m99</name>
+			<description>M99 low level driver</description>
+			<type>Low Level Driver</type>
+			<makefilepath>M099/DRIVER/COM/driver.mak</makefilepath>
+		</swmodule>
+		<swmodule>
+			<name>m99_latency</name>
+			<description>IRQ/Signal latency test tool</description>
+			<type>Driver Specific Tool</type>
+			<makefilepath>M099/TOOLS/M99_LATENCY/COM/program.mak</makefilepath>
+		</swmodule>
+		<swmodule internal="true">
+			<name>m99_main</name>
+			<description>internal test tool</description>
+			<type>Driver Specific Tool</type>
+			<makefilepath>M099/TEST/M99_MAIN/COM/program.mak</makefilepath>
+			<os>VxWorks</os>
+		</swmodule>
+	</swmodulelist>
+</package>
