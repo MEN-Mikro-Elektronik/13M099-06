@@ -1398,7 +1398,7 @@ static int32 M99_Irq
     | (if no block-i/o) |
     +------------------*/
     if (!buf)
-        MWRITE_D16( m99Hdl->maM68230, PAD_REG, ~(m99Hdl->irqCount & 1 ));
+        MWRITE_D16( m99Hdl->maM68230, PAD_REG, ~(m99Hdl->irqCount ));
 
     /*------------------+
     | calc new irq rate |
