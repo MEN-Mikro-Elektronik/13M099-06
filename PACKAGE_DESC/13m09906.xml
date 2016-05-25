@@ -139,12 +139,5 @@
 			<type>Driver Specific Tool</type>
 			<makefilepath>M099/TOOLS/M99_LATENCY/COM/program.mak</makefilepath>
 		</swmodule>
-		<swmodule internal="true">
-			<name>m99_main</name>
-			<description>internal test tool</description>
-			<type>Driver Specific Tool</type>
-			<makefilepath>M099/TEST/M99_MAIN/COM/program.mak</makefilepath>
-			<os>VxWorks</os>
-		</swmodule>
 	</swmodulelist>
 </package>
