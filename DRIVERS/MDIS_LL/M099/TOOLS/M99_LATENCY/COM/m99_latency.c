@@ -121,6 +121,9 @@ static void InitStats( STATS *st )
 	st->max = 0;
 	st->avgAcc = 0;
 	st->count = 0;
+	st->first = 0;
+	st->totalMin = 0;
+	st->totalMax = 0;
 }
 
 static void UpdateStats( STATS *st, int32 tval )
@@ -179,6 +182,9 @@ int main( int argc, char **argv )
 	int32 n,timerval;
 	char *device=NULL,*str,*errstr,buf[40];
 	STATS irqStats, sigStats;
+
+	InitStats(&irqStats);
+	InitStats(&sigStats);
 
 	if ((errstr = UTL_ILLIOPT("t=i=?", buf))) {	/* check args */
 		printf("*** %s\n", errstr);
