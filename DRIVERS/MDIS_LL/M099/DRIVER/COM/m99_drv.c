@@ -14,97 +14,23 @@
  *               MASK_IRQ_ILLEGAL   Calles OSS_SigCreate() with mask IRQ.
  *                                  Only allowed for special test!
  *
- *-------------------------------[ History ]---------------------------------
- *
- * $Log: m99_drv.c,v $
- * Revision 1.19  2010/08/20 14:10:23  CKauntz
- * R: DBGWRT prints a buffer pointer
- * M: Fixed key letters
- *
- * Revision 1.18  2009/09/23 08:52:33  CRuff
- * R: IrqHandler: double call of IrqMaskR / IrqRestore with same irq settings
- *    is wrong
- * M: store the irq settings of both IrqMaskR calls in different variables
- *
- * Revision 1.17  2009/07/06 12:11:02  CRuff
- * R: Compiler warnings with VxWorks diab compiler
- * M: Fixed type incompatibility in getTime()
- *
- * Revision 1.16  2009/06/24 10:59:52  CRuff
- * R: 1.Porting to MDIS5
- *    2.multiple IrqMask and Restore caused problems
- * M: 1.changed according to MDIS Porting Guide 0.5
- *    2.added double IrqMaskR() and IrqRestore in IRQ Handler
- *
- * Revision 1.15  2008/09/17 12:02:06  CKauntz
- * R: No Support for 64 bit
- * M: Changed SetStat and GetStats to support 64bit value
- *
- * Revision 1.14  2006/09/14 09:56:34  DPfeuffer
- * cast fixed
- *
- * Revision 1.13  2006/07/20 15:25:59  ufranke
- * cosmetics
- *
- * Revision 1.12  2005/07/22 13:09:16  dpfeuffer
- * OSS_SigCreate() must not be called at IRQ priority. Therefore OSS_IrqMaskR/
- * OSS_IrqRestore now only performed if MASK_IRQ_ILLEGAL switch is set.
- *
- * Revision 1.11  2004/05/05 14:11:47  cs
- * added lock mode processing to M99_Info
- * replaced OSS_IrqMask/OSS_IrqUnMask with OSS_IrqMaskR/OSS_IrqRestore
- * changed M99_Irq returns to LL_IRQ_DEVICE and LL_IRQ_DEV_NOT (values identical)
- * minor type casts for Win2k/WinNT compiler compatibility
- * moved include of dbg.h and define of DBG_MYLEVEL to beginning of list (needed by oss.h
- *
- * Revision 1.10  2003/06/06 13:52:35  kp
- * added support to measure interrupt/signal latency
- *
- * Revision 1.9  2001/08/27 11:55:52  kp
- * made all functions static except GetEntry
- *
- * Revision 1.8  2001/08/27 11:45:39  kp
- * don't request the same address space twice.
- * Now requests only a single address space
- *
- * Revision 1.7  2001/01/25 17:45:44  franke
- * Bugfix M99_BlkWrite  returns with the wrong nbr of written bytes in
- *        some cases
- *
- * Revision 1.6  2000/05/23 13:30:15  Franke
- * support swapped variant
- *
- * Revision 1.5  1999/06/04 13:41:46  kp
- * M_MK_IRQ_ENABLE: fixed spurious interrupt problem when disabling interrupts
- *
- * Revision 1.4  1999/06/04 08:32:17  kp
- * ident table incorrectly initialized
- *
- * Revision 1.3  1999/06/04 07:56:10  kp
- * fixed sign problem in dostep
- * fixed Ident function table not to use static variable
- *
- * Revision 1.2  1998/05/28 10:02:37  see
- * all DBG calls changed according to new DBG macros
- * all DBG messages: prefix "LL -" added
- * M99_Init: DBGINIT added
- * M99_Exit: DBGEXIT added
- * M99_HANDLE is now defined locally here
- * M99_HANDLE: debug handle added
- * M99_Init: OS function free() removed
- * global idFuncTbl removed, is now returned from M99_IdFuncTbl
- * global IdentString removed, is now returned directly in M99_Ident
- * missing RCSid string added
- * bug fixed: missing check if signal installed before OSS_SigXXX calls
- * M99_Init: read and init DESC debug level
- * M99_Init: read and init MBUF debug level
- *
- * Revision 1.1  1998/03/27 16:37:45  Franke
- * initial
- *
  *---------------------------------------------------------------------------
  * (c) Copyright 1997 by MEN mikro elektronik GmbH, Nuernberg, Germany
  ****************************************************************************/
+/*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 2 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 static const char RCSid[]="M99 - m99 low level driver $Id: m99_drv.c,v 1.19 2010/08/20 14:10:23 CKauntz Exp $";
 

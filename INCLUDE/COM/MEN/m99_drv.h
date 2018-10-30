@@ -13,25 +13,23 @@
  *     Switches: _ONE_NAMESPACE_PER_DRIVER_
  *               _LL_DRV_
  *
- *-------------------------------[ History ]---------------------------------
- *
- * $Log: m99_drv.h,v $
- * Revision 1.4  2009/06/30 11:51:38  CRuff
- * R: Porting to MDIS5
- * M: changed according to MDIS Porting Guide 0.5
- *
- * Revision 1.3  2003/06/06 13:52:44  kp
- * added support to measure interrupt/signal latency
- *
- * Revision 1.2  2001/08/27 11:56:09  kp
- * made all functions static except GetEntry
- *
- * Revision 1.1  1998/02/23 10:07:37  franke
- * initial
- *
  *---------------------------------------------------------------------------
  * (c) Copyright 1998 by MEN mikro elektronik GmbH, Nuernberg, Germany
  ****************************************************************************/
+/*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 2 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 #ifndef _M99_LLDRV_H
 #  define _M99_LLDRV_H
 
