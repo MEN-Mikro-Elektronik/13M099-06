@@ -10,55 +10,7 @@
  *
  *     Switches: -
  */
-/*-------------------------------[ History ]---------------------------------
- *
- * $Log: m99_latency.c,v $
- * Revision 1.12  2010/08/20 14:10:25  CKauntz
- * R: *** TestAutomatisation is based on current view ***
- * M: Do not change the tool output because it is required for TestAutomation
- *
- * Revision 1.11  2010/02/09 15:18:31  ufranke
- * cosmetics
- *
- * Revision 1.10  2010/02/09 15:16:50  ufranke
- * R: measure interval of 1s is fix
- * M: added user parameter interval - default 1s
- * R: min,max values valid for the current measurement interval only
- * M: added totalMin and totalMax
- *
- * Revision 1.9  2009/08/04 14:39:07  CRuff
- * R: statistics sometimes show unrealistic values after porting to 64 bit
- *    (very high, very negative)
- * M: initialize variables tval, irqLat in method SigHandler() before reading
- *    the values with M_getstat
- *
- * Revision 1.8  2009/06/24 11:03:17  CRuff
- * R: 1.Porting to MDIS5
- * M: 1. changed according to MDIS Porting Guide 0.5
- *
- * Revision 1.7  2009/05/08 09:42:54  dpfeuffer
- * R: sighdl() uses wrong calling convention under Windows
- * M: __MAPILIB keyword added to sighdl()
- *
- * Revision 1.6  2008/09/17 12:02:09  CKauntz
- * R: Mdis-Api Interface changed to support 64 bit
- * M: Path changed to INT32_OR_64
- *
- * Revision 1.5  2006/09/14 09:56:36  DPfeuffer
- * cosmetics
- *
- * Revision 1.4  2006/07/21 09:19:06  ufranke
- * cosmetics
- *
- * Revision 1.3  2005/03/30 09:08:28  kp
- * clear down signal conditions at end of test (in case LL driver still inized)
- *
- * Revision 1.2  2004/05/05 14:12:00  cs
- * changed symbols G_path, G_irqStats, G_sigStats to static
- *
- * Revision 1.1  2003/06/06 13:52:43  kp
- * Initial Revision
- *
+/*
  *---------------------------------------------------------------------------
  * (c) Copyright 2003..2010 by MEN mikro elektronik GmbH, Nuernberg, Germany 
  ****************************************************************************/
