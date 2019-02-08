@@ -1350,15 +1350,14 @@ static int32 M99_Irq
         return( LL_IRQ_DEV_NOT);
     }/*if*/
 
-    /* check the IRQ Mask and Spinlock implementation */
-    /* call the methods twice to check if double calls cause problems */
+    /* check the IRQ Mask/Restore and Spinlock implementation for SMP systems */
     irqState1 = OSS_IrqMaskR( m99Hdl->osHdl, m99Hdl->irqHdl );
-    irqState2 = OSS_IrqMaskR( m99Hdl->osHdl, m99Hdl->irqHdl );
-    OSS_IrqRestore( m99Hdl->osHdl, m99Hdl->irqHdl, irqState2 );
-    OSS_IrqRestore( m99Hdl->osHdl, m99Hdl->irqHdl, irqState1 );
 
 	/* get elapsed time since timer expired */
 	tval = m99Hdl->timerval - getTime( m99Hdl );
+
+    OSS_IrqRestore( m99Hdl->osHdl, m99Hdl->irqHdl, irqState1 );
+
 	IDBGWRT_3((DBH, " tval=0x%06x\n", tval )  );
 
 	if( tval > m99Hdl->maxIrqLatency )
