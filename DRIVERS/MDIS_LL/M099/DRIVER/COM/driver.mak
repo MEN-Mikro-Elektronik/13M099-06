@@ -8,29 +8,21 @@
 #    Description: makefile descriptor file for common
 #                 modules MDIS 4.0   e.g. low level driver
 #
-#---------------------------------[ History ]---------------------------------
-#
-#   $Log: driver.mak,v $
-#   Revision 1.3  2004/05/05 14:11:43  cs
-#   added switch MAK_SWITCH=$(SW_PREFIX)MAC_MEM_MAPPED
-#   removed needless PLD lib
-#   removed needless switch MAK_OPTIM=$(OPT_1)
-#
-#   Revision 1.2  1998/05/28 10:02:23  see
-#   missing dbg.h added
-#   missing DBG lib added
-#   missing ID lib added
-#   mbuf lib must linked before oss lib
-#
-#   Revision 1.1  1998/03/27 16:37:38  Franke
-#   initial
-#
-#   Revision 1.1  1998/02/04 17:40:09  uf
-#   initial
-#
 #-----------------------------------------------------------------------------
-#   (c) Copyright 1997 by MEN mikro elektronik GmbH, Nuernberg, Germany
+#   Copyright (c) 1997-2019, MEN Mikro Elektronik GmbH
 #*****************************************************************************
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 MAK_NAME=m99
 
