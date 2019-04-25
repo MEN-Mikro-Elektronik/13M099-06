@@ -3,8 +3,8 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="packagedesc.xsd">
 	<name>13m09906</name>
 	<description>MDIS5 driver package for MEN M99 M-Module</description>
-	<date>2010-08-20</date>
-	<revision>2.13</revision>
+	<date>2019-02-21</date>
+	<revision>13M099-06_02_15-0-g31531d1-dirty</revision>
 	<modellist>
 		<model>
 			<hwname>M99</hwname>

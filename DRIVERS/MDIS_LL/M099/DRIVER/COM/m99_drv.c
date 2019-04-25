@@ -1,11 +1,9 @@
 /*********************  P r o g r a m  -  M o d u l e ***********************
  *
  *         Name: m99_drv.c
- *      Project: M99 module driver (MDIS V4.x)
+ *      Project: M99 module driver
  *
  *       Author: uf
- *        $Date: 2010/08/20 14:10:23 $
- *    $Revision: 1.19 $
  *
  *  Description: Low level driver for M99 modules
  *
@@ -32,8 +30,6 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-static const char RCSid[]="M99 - m99 low level driver $Id: m99_drv.c,v 1.19 2010/08/20 14:10:23 CKauntz Exp $";
-
 /* pass debug definitions to dbg.h */
 #define DBG_MYLEVEL		m99Hdl->dbgLevel
 
@@ -55,6 +51,7 @@ static const char RCSid[]="M99 - m99 low level driver $Id: m99_drv.c,v 1.19 2010
 /*-----------------------------------------+
 |  DEFINES & CONST                         |
 +------------------------------------------*/
+static const char IdentString[]=MENT_XSTR(MAK_REVISION);
 #define MOD_ID_MAGIC_WORD   0x5346        /* eeprom identification (magic) */
 #define M99_MOD_ID          99
 #define M99_DONT_ID_CHECK 0
@@ -189,7 +186,7 @@ static int32 M99_Info(        int32     infoType, ... );
  ****************************************************************************/
 static char* M99_Ident( void )
 {
-    return( (char*) RCSid );
+    return( (char*) IdentString );
 }/*M99_Ident*/
 
 

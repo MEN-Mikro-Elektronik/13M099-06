@@ -3,8 +3,6 @@
  *        \file  m99_latency.c
  *
  *      \author  klaus.popp@men.de
- *        $Date: 2010/08/20 14:10:25 $
- *    $Revision: 1.12 $
  * 
  *  	 \brief  Measures interrupt and signal latency 
  *
@@ -28,8 +26,6 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-static char *RCSid="$Id: m99_latency.c,v 1.12 2010/08/20 14:10:25 CKauntz Exp $";
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -63,6 +59,7 @@ typedef struct {
 
 static STATS G_irqStats, G_sigStats;
 static MDIS_PATH G_path;
+static const char IdentString[]=MENT_XSTR(MAK_REVISION);
 
 /**********************************************************************/
 /** print usage
@@ -77,7 +74,7 @@ static void usage(void)
 	printf("    -i=<interval>  interval      [1]=1s\n");
 	printf("    device     devicename (M99)        [none]\n");
 	printf("\n");
-	printf("%s\n", RCSid );
+	printf("%s\n", IdentString );
 	printf("(c) 2003..2010 by MEN mikro elektronik GmbH\n\n");
 }
 

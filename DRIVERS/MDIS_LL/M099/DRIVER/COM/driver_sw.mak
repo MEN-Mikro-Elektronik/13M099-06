@@ -1,12 +1,9 @@
 #***************************  M a k e f i l e  *******************************
 #
-#        $Author: cs $
-#          $Date: 2004/05/05 14:11:45 $
-#      $Revision: 1.4 $
-#        $Header: /dd2/CVSR/COM/DRIVERS/MDIS_LL/M099/DRIVER/COM/driver_sw.mak,v 1.4 2004/05/05 14:11:45 cs Exp $
+#         Author: cs
 #
 #    Description: makefile descriptor file for common
-#                 modules MDIS 4.0   e.g. low level driver
+#                 modules e.g. low level driver
 #
 #-----------------------------------------------------------------------------
 #   Copyright (c) 1997-2019, MEN Mikro Elektronik GmbH
@@ -48,9 +45,13 @@ MAK_INCL=$(MEN_INC_DIR)/m99_drv.h     \
          $(MEN_INC_DIR)/dbg.h    \
 
 
+# the next line is updated during the MDIS installation
+STAMPED_REVISION="13M099-06_02_15-0-g31531d1-dirty_2019-02-21"
+
+DEF_REVISION=MAK_REVISION=$(STAMPED_REVISION)
 MAK_SWITCH=$(SW_PREFIX)MAC_MEM_MAPPED \
-		   $(SW_PREFIX)MAC_BYTESWAP \
 		   $(SW_PREFIX)ID_SW \
+		   $(SW_PREFIX)$(DEF_REVISION)
 
 MAK_INP1=m99_drv$(INP_SUFFIX)
 MAK_INP2=
