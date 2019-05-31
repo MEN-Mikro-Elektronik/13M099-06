@@ -74,8 +74,8 @@ static void usage(void)
 	printf("    -i=<interval>  interval      [1]=1s\n");
 	printf("    device     devicename (M99)        [none]\n");
 	printf("\n");
+	printf("Copyright (c) 2003-2019, MEN Mikro Elektronik GmbH\n");
 	printf("%s\n", IdentString );
-	printf("(c) 2003..2010 by MEN mikro elektronik GmbH\n\n");
 }
 
 static void InitStats( STATS *st )
