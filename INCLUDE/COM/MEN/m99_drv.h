@@ -3,8 +3,6 @@
  *         Name: m99_driver.h
  *
  *       Author: uf
- *        $Date: 2009/06/30 11:51:38 $
- *    $Revision: 1.4 $
  *
  *  Description: Header file for M99 driver modules
  *               - M99 specific status codes
