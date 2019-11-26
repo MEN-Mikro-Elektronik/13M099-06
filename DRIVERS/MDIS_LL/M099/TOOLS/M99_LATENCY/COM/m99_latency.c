@@ -10,7 +10,7 @@
  */
 /*
  *---------------------------------------------------------------------------
- * Copyright (c) 2003-2019, MEN Mikro Elektronik GmbH
+ * Copyright 2003-2019, MEN Mikro Elektronik GmbH
  ****************************************************************************/
 /*
 * This program is free software: you can redistribute it and/or modify
@@ -74,7 +74,7 @@ static void usage(void)
 	printf("    -i=<interval>  interval      [1]=1s\n");
 	printf("    device     devicename (M99)        [none]\n");
 	printf("\n");
-	printf("Copyright (c) 2003-2019, MEN Mikro Elektronik GmbH\n");
+	printf("Copyright 2003-2019, MEN Mikro Elektronik GmbH\n");
 	printf("%s\n", IdentString );
 }
 
